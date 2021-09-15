@@ -14,15 +14,17 @@ module.exports = function (componentsUrl, extension) {
 
 		let data = file.contents.toString()
 		data = data.replace(/@include\s"(.*\.(.*))"/gi, (match, componentName, componentExtension) => {
-			console.log('@include ' + componentExtension + componentName)
+			if (componentExtension != extension)
+				return null;
+			console.log(`@include ${componentExtension} ${componentName}`)
 			return componentName.startsWith('https://') ? request('GET', componentName).getBody() :
 				fs.readFileSync(componentsUrl + componentName, {
 					encoding: 'utf8'
 				})
-		})
+		}) ?? data
 
 		file.contents = Buffer.from(data)
-		file.path = gutil.replaceExtension(file.path, extension)
+		file.path = gutil.replaceExtension(file.path, `.${extension}`)
 		return cb(null, file)
 	})
 }
