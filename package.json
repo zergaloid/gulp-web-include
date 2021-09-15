@@ -1,22 +1,19 @@
 {
-  "name": "gulp-html-import",
+  "name": "gulp-html-add",
   "version": "0.0.1",
-  "description": "A gulp plugin which can import .html files into .html files",
+  "description": "A derivative of a gulp plugin that can import .html files into other .html files",
   "main": "index.js",
   "dependencies": {
     "gulp-util": "^3.0.7",
     "sync-request": "^6.1.0",
     "through2": "^2.0.1"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "gulp",
-    "gulpplugin",
     "html",
-    "import"
+    "import",
+    "include"
   ],
-  "author": "Jrain Lau",
-  "license": "MIT"
+  "author": "Zergal <Valentin Popov>",
+  "license": "GPL 2"
 }
