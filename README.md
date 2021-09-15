@@ -1,14 +1,14 @@
-# gulp-html-add - dervied from gulp-html-import
+# gulp-web-include - dervied from gulp-html-import
 > A gulp plugin which can include .html files AND on-the-web HTML in other .html files
 
 ## Usage
-First, install `gulp-html-add` as a devDependency:
+First, install `gulp-web-include` as a devDependency:
 ```
-npm install gulp-html-add --save-dev
+npm install gulp-web-include --save-dev
 ```
 Then add it to the `gulpfile.js`:
 ```
-var htmlImport = require('gulp-html-add');
+var htmlImport = require('gulp-web-include');
 
 gulp.task('import', function () {
     gulp.src('./demo/index.html')
@@ -42,7 +42,7 @@ HTML:
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>gulp-html-add Example</title>
+    <title>gulp-web-include Example</title>
 </head>
 <body>
     @import "header.html"

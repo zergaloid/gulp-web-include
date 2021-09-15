@@ -4,13 +4,13 @@ const request = require('sync-request');
 
 const fs = require('fs')
 
-module.exports = function (componentsUrl) {
+module.exports = function (componentsUrl, extension) {
 	return through.obj(function (file, enc, cb) {
 		if (file.isNull())
 			return cb(null, file)
 
 		if (file.isStream())
-			return cb(new gutil.PluginError('gulp-html-include', 'Streaming not supported'))
+			return cb(new gutil.PluginError('gulp-web-include', 'Streaming not supported'))
 
 		let data = file.contents.toString()
 		data = data.replace(/@import\s"(.*)"/gi, (match, componentName) => {
@@ -22,7 +22,7 @@ module.exports = function (componentsUrl) {
 		})
 
 		file.contents = Buffer.from(data)
-		file.path = gutil.replaceExtension(file.path, '.html')
-		cb(null, file)
+		file.path = gutil.replaceExtension(file.path, extension)
+		return cb(null, file)
 	})
 }
