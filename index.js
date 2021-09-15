@@ -10,11 +10,11 @@ module.exports = function (componentsUrl) {
 			return cb(null, file)
 
 		if (file.isStream())
-			return cb(new gutil.PluginError('gulp-html-import', 'Streaming not supported'))
+			return cb(new gutil.PluginError('gulp-html-include', 'Streaming not supported'))
 
 		let data = file.contents.toString()
 		data = data.replace(/@import\s"(.*)"/gi, (match, componentName) => {
-			console.log('@import ' + componentName)
+			console.log('@include ' + componentName)
 			return componentName.startsWith('https://') ? request('GET', componentName).getBody() :
 				fs.readFileSync(componentsUrl + componentName, {
 					encoding: 'utf8'

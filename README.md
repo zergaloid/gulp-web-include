@@ -1,14 +1,14 @@
-# gulp-html-import
-> A gulp plugin which can import .html files into .html files
+# gulp-html-include - dervied from gulp-html-import
+> A gulp plugin which can include .html files AND on-the-web HTML in other .html files
 
 ## Usage
-First, install `gulp-html-import` as a devDependency:
+First, install `gulp-html-include` as a devDependency:
 ```
-npm install gulp-html-import --save-dev
+npm install gulp-html-include --save-dev
 ```
 Then add it to the `gulpfile.js`:
 ```
-var htmlImport = require('gulp-html-import');
+var htmlImport = require('gulp-html-include');
 
 gulp.task('import', function () {
     gulp.src('./demo/index.html')
@@ -33,7 +33,8 @@ Here is the files tree:
 |
 -- gulpfile.js
 ```
-Html files:
+
+HTML:
 ```
 <!-- index.html -->
 
@@ -41,7 +42,7 @@ Html files:
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gulp-html-import Example</title>
+    <title>gulp-html-include Example</title>
 </head>
 <body>
     @import "header.html"
@@ -50,54 +51,6 @@ Html files:
 </body>
 </html>
 ```
-In your `index.html`, you should use
-```
-@import "XXX.html"
-```
-to import your components.
-```
-<!-- header.html -->
 
-<h1>I am the header</h1>
-```
-```
-<!-- footer.html -->
-
-<h1>I am the footer</h1>
-```
-When you get into the root directory(where your `gulpfile.js` is) and type
-
- ```
-gulp import
-```
-
- you could see a html file in `/dist` like this:
-```
-<!-- /dist/index.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Gulp-html-import Example</title>
-</head>
-<body>
-    <h1>I am the header</h1>
-    <p>Hello World</p>
-    <h1>I am the footer</h1>
-</body>
-</html>
-```
-Everything is OK.
-
-## API
-### htmlImport(string)
-#### string
-Type: `String`
-
-The url of your components
-
----
-[MIT](https://opensource.org/licenses/MIT)
-
-Copyright © 2016 Jrain Lau
+## Legal
+For legal information, see LICENSE
