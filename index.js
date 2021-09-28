@@ -14,8 +14,7 @@ module.exports = function (componentsUrl, extensionToOutput) {
 			return cb(new gutil.PluginError('gulp-web-include', 'Streaming not supported'))
 
 		let data = file.contents.toString()
-		let newData = data.replace(/@include\s"(.*\.(.*))"/gi, (match, componentName, componentExtension) => {
-			console.log(componentExtension, extensionToImport)
+		let newData = data.replace(/@include\s."(.*\.(.*))"./gi, (match, componentName, componentExtension) => {
 			if (componentExtension != extensionToOutput)
 				return false;
 			console.log(`@include ${componentExtension} ${componentName} ${componentsUrl}`)
