@@ -1,5 +1,5 @@
 # gulp-web-include - dervied from gulp-html-import
-> A gulp plugin which can include .html files AND on-the-web HTML in other .html files
+> A gulp plugin which can include anything into anything (yes, on-the-web files too)
 
 ## Usage
 First, install `gulp-web-include` as a devDependency:
