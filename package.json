@@ -1,6 +1,6 @@
 {
   "name": "gulp-web-include",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A derivative of a gulp plugin that can import any arbitrary file into any other arbitrary file",
   "main": "index.js",
   "dependencies": {
