@@ -8,49 +8,16 @@ npm install gulp-web-include --save-dev
 ```
 Then add it to the `gulpfile.js`:
 ```
-var htmlImport = require('gulp-web-include');
+var includer = require('gulp-web-include');
 
 gulp.task('import', function () {
-    gulp.src('./demo/index.html')
-        .pipe(htmlImport('./demo/components/'))
+    gulp.src(<file to include into>)
+        .pipe(includer(<path to components>, <>))
         .pipe(gulp.dest('dist')); 
 })
 ```
 
-## Example
-Here is the files tree:
-```
-|
--- demo
-|   |
-|   -- components
-|   |    |
-|   |    -- header.html
-|   |    |
-|   |    -- footer.html
-|   |
-|   -- index.html
-|
--- gulpfile.js
-```
-
-HTML:
-```
-<!-- index.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>gulp-web-include Example</title>
-</head>
-<body>
-    @import "header.html"
-    <p>Hello World</p>
-    @import "footer.html"
-</body>
-</html>
-```
-
 ## Legal
 For legal information, see LICENSE
+
+This project has been derived from another project, so the LICENSE file was changed accordingly, the original license is preserved

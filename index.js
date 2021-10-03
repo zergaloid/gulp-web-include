@@ -4,7 +4,7 @@ const request = require('sync-request');
 
 const fs = require('fs')
 
-module.exports = function (componentsUrl, extensionToOutput) {
+module.exports = function (componentsUrl) {
 	return through.obj(function (file, enc, cb) {
 
 		if (file.isNull())
@@ -15,8 +15,6 @@ module.exports = function (componentsUrl, extensionToOutput) {
 
 		let data = file.contents.toString()
 		let newData = data.replace(/@include\s."(.*\.(.*))"./gi, (match, componentName, componentExtension) => {
-			if (componentExtension != extensionToOutput)
-				return false;
 			console.log(`@include ${componentExtension} ${componentName} ${componentsUrl}`)
 			return componentName.startsWith('https://') ? request('GET', componentName).getBody() :
 				fs.readFileSync(componentsUrl + componentName, {
@@ -26,7 +24,6 @@ module.exports = function (componentsUrl, extensionToOutput) {
 		data = newData ?? data
 
 		file.contents = Buffer.from(data)
-		file.path = gutil.replaceExtension(file.path, `.${extensionToOutput}`)
 		return cb(null, file)
 	})
 }

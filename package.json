@@ -1,7 +1,7 @@
 {
   "name": "gulp-web-include",
-  "version": "1.1.0",
-  "description": "A derivative of a gulp plugin that can import .html files into other .html files",
+  "version": "1.2.0",
+  "description": "A derivative of a gulp plugin that can import any arbitrary file into any other arbitrary file",
   "main": "index.js",
   "dependencies": {
     "gulp-util": "^3.0.7",
@@ -10,7 +10,6 @@
   },
   "keywords": [
     "gulp",
-    "html",
     "import",
     "include"
   ],
